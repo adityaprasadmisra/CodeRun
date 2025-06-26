@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeRun</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>CodeRun</h1>
+
+    <div class="main-container">
+        <!-- Left: Code Editor -->
+        <div class="editor-column">
+            <form method="POST">
+                <!-- Code Editor -->
+                <textarea name="code" placeholder="Write your C++ code here...">{{ code }}</textarea>
+
+                <!-- Input Box -->
+                <br><br>
+                <textarea name="user_input" placeholder="Enter input (cin values)..." rows="4">{{ user_input }}</textarea>
+
+                <!-- Run Button -->
+                <div class="button-container">
+                    <button type="submit">Run Code</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right: Output Panel -->
+        <div class="output-column">
+            <h3>Output:</h3>
+            <pre>{{ output }}</pre>
+        </div>
+    </div>
+
+</body>
+</html>

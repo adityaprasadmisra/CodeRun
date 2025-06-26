@@ -1,0 +1,145 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0e0e10;
+    color: #f0f0f0;
+    font-family: 'Fira Code', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #348f8a;
+    text-shadow: 1px 1px 5px rgba(43, 132, 165, 0.5);
+}
+
+form {
+    width: 100%;
+    background: #171917;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* FLEXBOX container for code & output */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2rem;
+    align-items: flex-start; /* aligns tops of both columns */
+}
+
+.editor-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right column for output */
+.output-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    height: 400px; /* Set fixed height */
+    background: #2d2d2d;
+    color: #f8f8f2;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1rem;
+    resize: vertical;
+    outline: none;
+    box-shadow: inset 0 0 10px rgba(0, 255, 100, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    box-shadow: 0 0 10px #348f8a;
+}
+
+/* RUN BUTTON */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+button {
+    background: #f7f7f5;
+    color: #0e0e10;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background: #6ae56a;
+    transform: scale(1.05);
+}
+
+/* OUTPUT BOX */
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+pre {
+    height: 400px; /* Match textarea height */
+    background: #1e1e1e;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 255, 100, 0.1);
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-y: auto;
+    overflow-x: auto;
+    font-size: 1rem;
+    color: #bfdb22;
+    width: 100%;
+}
+
+/* Optional: Add a gradient background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 20%, #1f1f1f, #0e0e10 70%);
+    z-index: -1;
+}
+textarea[name="user_input"] {
+    height: 80px; /* adjust as needed */
+    margin-top: 1rem;
+}
+
