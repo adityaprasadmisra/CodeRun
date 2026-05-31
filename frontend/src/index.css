@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-gray-200 antialiased font-sans overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.07) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.07) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.02) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-800 rounded-full hover:bg-gray-700 transition-colors;
+}
+
+/* Glassmorphism card utility */
+.glass-panel {
+  @apply bg-brand-card border border-brand-border rounded-xl backdrop-blur-md shadow-2xl;
+}
+
+.glass-input {
+  @apply bg-black/40 border border-brand-border rounded-lg px-4 py-2 text-gray-200 focus:outline-none focus:border-brand-glow/50 focus:ring-1 focus:ring-brand-glow/50 transition-all duration-300;
+}
+
+.glass-btn-primary {
+  @apply bg-brand-glow/15 hover:bg-brand-glow/25 text-brand-glow border border-brand-glow/40 hover:border-brand-glow/65 rounded-lg px-4 py-2 font-medium transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] flex items-center justify-center gap-2;
+}
+
+.glass-btn-secondary {
+  @apply bg-gray-800/40 hover:bg-gray-800/80 text-gray-300 border border-brand-border rounded-lg px-4 py-2 font-medium transition-all duration-300 flex items-center justify-center gap-2;
+}
+
+.glass-btn-success {
+  @apply bg-brand-emerald/15 hover:bg-brand-emerald/25 text-brand-emerald border border-brand-emerald/40 hover:border-brand-emerald/65 rounded-lg px-4 py-2 font-medium transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)] flex items-center justify-center gap-2;
+}
+
+.glow-border {
+  @apply relative;
+}
+
+.glow-border::after {
+  content: '';
+  @apply absolute -inset-px rounded-xl border border-brand-glow/30 pointer-events-none opacity-0 transition-opacity duration-300;
+}
+
+.glow-border:hover::after {
+  @apply opacity-100;
+}

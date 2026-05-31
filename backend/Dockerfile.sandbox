@@ -1,0 +1,13 @@
+FROM alpine:3.19
+
+# Install compilers and runtimes for C, C++, Java, and Python
+RUN apk update && apk add --no-cache \
+    gcc \
+    g++ \
+    openjdk17-jdk \
+    python3 \
+    bash \
+    coreutils
+
+# Create app directory
+WORKDIR /app
