@@ -8,6 +8,10 @@ env/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Test & runtime artifacts
+.pytest_cache/
+backend/scratch/
 *.so
 .Python
 build/
