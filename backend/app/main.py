@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import engine, Base
-from .routers import auth, submission, analytics
+from .routers import auth, submission, analytics, execute
 
 # Initialize database tables on startup (no migrations needed for simple dev)
 try:
@@ -31,6 +31,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api")
 app.include_router(submission.router, prefix="/api")
 app.include_router(analytics.router, prefix="/api")
+app.include_router(execute.router, prefix="/api")  # WebSocket: /api/ws/execute (interactive runs)
 
 @app.get("/api/health")
 def health_check():
