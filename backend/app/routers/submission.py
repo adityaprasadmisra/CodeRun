@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from uuid import UUID
 from ..database import get_db
 from ..models import Submission, Report, User
 from ..schemas import SubmissionCreate, SubmissionResponse, SubmissionHistoryResponse
@@ -98,7 +97,7 @@ def get_submission_history(
 
 @router.get("/{submission_id}", response_model=SubmissionResponse)
 def get_submission_details(
-    submission_id: UUID, 
+    submission_id: str,
     db: Session = Depends(get_db), 
     current_user: User = Depends(get_current_user)
 ):
